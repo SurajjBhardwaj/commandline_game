@@ -1,0 +1,29 @@
+{
+  "name": "suraj-game",
+  "version": "1.0.0",
+  "description": "it is a commandline game for you",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SurajjBhardwaj/commandline_game.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": "./index.js",
+  "author": "surajj bhardwaj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SurajjBhardwaj/commandline_game\u001b[1;6D\u001b[1;6D\u001b[1;6C\u001b[C\u001b[1;6D\u001b[1;6D\u001b[C\u001b[C\u001b[/issues"
+  },
+  "homepage": "https://github.com/SurajjBhardwaj/commandline_game\u001b[1;6D\u001b[1;6D\u001b[1;6C\u001b[C\u001b[1;6D\u001b[1;6D\u001b[C\u001b[C\u001b[#readme",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "chalk-animation": "^2.0.3",
+    "figlet": "^1.6.0",
+    "gradient-string": "^2.0.2",
+    "inquirer": "^9.2.3",
+    "nanospinner": "^1.1.0"
+  }
+}
