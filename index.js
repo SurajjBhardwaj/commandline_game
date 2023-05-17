@@ -252,7 +252,33 @@ async function winner(){
     figlet(msg, (err, data)=>{
         console.log(gradient.pastel.multiline(data));
         
-        console.log(gradient.passion.multiline(`\n                       we are friends, Now!!`));
+        if(`${player}`==='Agrim' || `${player}`==='agrim' ){
+
+            console.log(gradient.passion.multiline(`\n                       you are my best friends.`));
+        
+        }
+        else if (`${player}` === 'Jyoti' || `${player}` === 'jyoti' || `${player}` === 'Jyoti km' || `${player}` === 'jyoti km'){
+
+
+            console.log(gradient.passion.multiline(`\n                       you are my love,i love you jaan`));
+        }
+
+        else if (`${player}` === 'Kamal' || `${player}` === 'kamal' || `${player}` === 'saka' || `${player}` === 'kamalnayan' || `${player}` === 'kamal nayan' || `${player}` === 'Kamal Nayan' || `${player}` === 'Kamal nayan' || `${player}` === 'KamalNayan' ){
+
+
+            console.log(gradient.passion.multiline(`\n                       you are my brother`));
+        }
+
+        else if (`${player}` === 'niraj' || `${player}` === 'Niraj' || `${player}` === 'niraj pandey' || `${player}` === 'Niraj pandey' ){
+
+
+            console.log(gradient.passion.multiline(`\n                       you are my brother`));
+        }
+        
+        else{
+            console.log(gradient.passion.multiline(`\n                       we are friends, Now !!`));
+        }
+       
     })
 
     await handlelast();
@@ -273,4 +299,3 @@ await question1();
 await question2();
 await question3();
 await question4();
-
