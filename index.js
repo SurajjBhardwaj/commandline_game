@@ -30,7 +30,7 @@ import { promises } from "dns";
 
 
 let player;
-
+let Gender;
 // javascript does'nt allow us to implement a promise based timeout so this line of code will help
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r , ms));
 
@@ -76,6 +76,30 @@ async function playername() {
     player = answers.player_name;
 }
 
+async function askGender() {
+
+    
+    const answers = await inquirer.prompt ({
+        name: 'gender',
+        type: 'list',
+        message: chalk.yellow('your gender \n'),
+        choices: [
+            'Male',
+            'Female'
+        ],
+        default(){
+            return 'Men'
+        }
+
+       
+    });
+
+   
+   if(answers.gender==='Male')Gender="Mr.";
+   else Gender="Miss."
+}
+
+
 // define your question
 async function question1() {
 
@@ -112,6 +136,7 @@ async function question2() {
         ],
     });
 
+    
     answers.question1 == 'because we will grow together';
     return handleAnswer2(answers.question2 == 'coding' );
 }
@@ -145,7 +170,7 @@ async function question4() {
     const answers = await inquirer.prompt ({
         name: 'question4',
         type: 'list',
-        message: chalk.yellow(`Good going Mr. ${player} \n One last question what i dislike the most ? \n`),
+        message: chalk.yellow(`Good going ${Gender} ${player} \n One last question what i dislike the most ? \n`),
         choices: [
             'not doing the thing which is important for me',
             'work for society',
@@ -173,7 +198,7 @@ async function handleAnswer1(isCorrect) {
         await sleep();
     }
     else {
-        Spinner.error({text : `game over mr ${player}. you can't be my friend !!`});
+        Spinner.error({text : `game over ${Gender} ${player}. you can't be my friend !!`});
         process.exit(1);
     }
 }
@@ -182,13 +207,14 @@ async function handleAnswer2(isCorrect) {
 
     const Spinner =  createSpinner('checking answer...').start();
     await sleep();
+   
 
     if(isCorrect){
-        Spinner.success({text : `Gud job, Mr. ${player} !!`});
+        Spinner.success({text : `Gud job, ${Gender} ${player} !!`});
         await sleep();
     }
     else {
-        Spinner.error({text : `game over mr ${player}. you can't be my friend !!`});
+        Spinner.error({text : `game over ${Gender} ${player}. you can't be my friend !!`});
         process.exit(1);
     }
 
@@ -201,11 +227,11 @@ async function handleAnswer3(isCorrect) {
     await sleep();
 
     if(isCorrect){
-        Spinner.success({text : `you are toally my type, brother !!`});
+        Spinner.success({text : `you are toally my type, yaar !!`});
         await sleep();
     }
     else {
-        Spinner.error({text : `game over mr ${player}. you can't be my friend !!`});
+        Spinner.error({text : `game over ${Gender} ${player}. you can't be my friend !!`});
         process.exit(1);
     }
 
@@ -225,7 +251,7 @@ async function handleAnswer4(isCorrect) {
        await winner();
     }
     else {
-        Spinner.error({text : `game over mr ${player}. you can't be my friend !!`});
+        Spinner.error({text : `game over ${Gender} ${player}. you can't be my friend !!`});
         process.exit(1);
     }
 
@@ -295,6 +321,7 @@ async function winner(){
 
 await welcome();
 await playername();
+await askGender();
 await question1();
 await question2();
 await question3();
